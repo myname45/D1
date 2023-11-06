@@ -1,0 +1,26 @@
+delimiter //
+
+create trigger my_trigger1
+after delete on lib_book
+for each row
+begin
+	insert into lib_audit values (old.bid, old.bname, old.qty);
+end;
+//
+
+delimiter ;
+
+
+
+delimiter //
+
+create trigger my_trigger2
+after update on lib_book
+for each row 
+
+begin 
+	insert into lib_audit values (old.bid, old.bname, old.qty);
+end;
+//
+
+delimiter ;

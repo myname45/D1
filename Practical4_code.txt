@@ -1,0 +1,26 @@
+delimiter//
+
+create procedure Find_Circle_Area()
+BEGIN
+declare r int;
+declare a float;
+
+set r = 5;
+
+loop_label: LOOP
+		IF (r > 9)THEN
+			LEAVE loop_label;
+		END IF;
+		
+		set a = 3.14*r*r;
+			insert into Table_Area values (r,a);
+			
+		set r = r+1;
+	End LOOP;
+	
+END;
+
+//
+
+delimiter;
+
